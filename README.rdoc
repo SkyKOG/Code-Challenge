@@ -1,1 +1,8 @@
-README
+User-details{
+  username = praveen1
+  password = praveen1
+}
+admin-details{
+  username = admin1
+  password = admin1
+}
