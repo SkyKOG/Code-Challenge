@@ -1,0 +1,25 @@
+<%= stylesheet_link_tag    "foundation" %>
+<div class= "top-bar-section">
+	<div class = "top-bar">
+		<ul class = "left">
+			<li class = "divider"></li>
+			<li class = "active"><%= link_to "CODE CHALLENGE", problem_browse_path %></li>
+			<li class = "active"><%= link_to "Browse", problem_browse_path %></li>
+		</ul>
+		<ul class = "right">
+			<li class = "divider"></li>
+			<li class = "active"><%= link_to current_user.username, problem_browse_path %></li>
+			<li class = "active"><%= link_to "Log Out", destroy_user_session_path, :method => "delete" %></li>
+		</ul>
+	</div>
+</div>
+<div class = "row">
+	<div class = "large-8 large-centered columns">
+		<div class = "callout panel"><%= @problem.title %></div>
+		<div class = "panel"><%= @problem.question %></div>
+		<%= form_tag({:action => :answer, :id => @problem.id }, :multipart => true) do %>
+			<%= file_field_tag 'upload' %>
+			<%= button_tag 'Upload' %>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,41 @@
+<%= stylesheet_link_tag 'foundation' %>
+<div class= "top-bar-section">
+	<div class = "top-bar">
+		<ul class = "left">
+			<li class = "divider"></li>
+			<li class = "active"><%= link_to "CODE CHALLENGE", admin_section_browse_path %></li>
+			<li class = "active"><%= link_to "Browse", admin_section_browse_path %></li>
+			<li class = "active"><%= link_to "Add Problem", admin_section_new_path %></li>
+		</ul>
+		<ul class = "right">
+			<li class = "divider"></li>
+			<li class = "active"><%= link_to current_admin.username, admin_section_browse_path %></li>
+			<li class = "active"><%= link_to "Log Out", destroy_admin_session_path, :method => "delete" %></li>
+		</ul>
+	</div>
+</div>
+
+
+<%= form_tag( :controller => "admin_section", :action => "create" ) do %>
+	<div class = "row">
+		<p>
+			<h4><%= label_tag(:title, "Title") %><h4>
+			<%= text_field_tag(:title) %>
+		</p>
+		<p>
+			<%= label_tag(:question, "Question") %>
+			<%= text_area_tag(:question) %>
+		</p>
+		<p>
+			<%= label_tag(:testing_input, "Testing Input") %>
+			<%= text_area_tag(:testing_input) %>
+		</p>
+		<p>
+			<%= label_tag(:testing_output, "Testing Output") %>
+			<%= text_area_tag(:testing_output) %>
+		</p>
+		<p>
+			<%= button_tag("Add Problem") %>
+		</p>
+	</div>
+<% end %>

@@ -1,0 +1,27 @@
+<%= stylesheet_link_tag 'foundation' %>
+<div class= "top-bar-section">
+	<div class = "top-bar">
+		<ul class = "left">
+			<li class = "divider"></li>
+			<li class = "active"><%= link_to "CODE CHALLENGE", admin_section_browse_path %></li>
+			<li class = "active"><%= link_to "Browse", admin_section_browse_path %></li>
+			<li class = "active"><%= link_to "Add Problem", admin_section_new_path %></li>
+		</ul>
+		<ul class = "right">
+			<li class = "divider"></li>
+			<li class = "active"><%= link_to current_admin.username, admin_section_browse_path %></li>
+			<li class = "active"><%= link_to "Log Out", destroy_admin_session_path, :method => "delete" %></li>
+		</ul>
+	</div>
+</div>
+
+<% @problems.each do |problem| %>
+<div class = "row" >
+	<div class = "large-10 columns panel" >
+		<%= problem.title %>
+	</div>
+	<div class = "large-2 columns panel" > 
+		<%= link_to "Delete", admin_section_destroy_path(:id => problem.id) %>
+	</div>
+</div>
+<% end %>

@@ -1,0 +1,18 @@
+<%= stylesheet_link_tag    "foundation" %>
+<div class= "top-bar-section">
+	<div class = "top-bar">
+		<ul class = "left">
+			<li class = "divider"></li>
+			<li class = "active"><%= link_to "CODE CHALLENGE", problem_browse_path %></li>
+			<li class = "active"><%= link_to "Browse", problem_browse_path %></li>
+		</ul>
+		<ul class = "right">
+			<li class = "divider"></li>
+			<li class = "active"><%= link_to current_user.username, problem_browse_path %></li>
+			<li class = "active"><%= link_to "Log Out", destroy_user_session_path, :method => "delete" %></li>
+		</ul>
+	</div>
+</div>
+<% if @result == "Success" %>
+	<p class = "callout panel">Congrats.You got the correct answer.Proceed to the next question</p>
+<% end %>

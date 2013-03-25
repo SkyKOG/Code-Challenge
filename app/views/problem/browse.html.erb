@@ -1,0 +1,43 @@
+<%= stylesheet_link_tag    "foundation" %>
+<% i = 1 %>
+
+<div class= "top-bar-section">
+	<div class = "top-bar">
+		<ul class = "left">
+			<li class = "divider"></li>
+			<li class = "active"><%= link_to "CODE CHALLENGE", problem_browse_path %></li>
+			<li class = "active"><%= link_to "Browse", problem_browse_path %></li>
+		</ul>
+		<ul class = "right">
+			<li class = "divider"></li>
+			<li class = "active"><%= link_to current_user.username, problem_browse_path %></li>
+			<li class = "active"><%= link_to "Log Out", destroy_user_session_path, :method => "delete" %></li>
+		</ul>
+	</div>
+</div>
+
+<div class = 'row'>
+	<% @problems.each do |problem| %>
+		<div class = 'large-1 columns panel'>
+			#<%= i %>
+		</div>
+		<div class = 'large-5 columns panel'>	
+			<%= problem.title %>
+		</div>
+		<div class = 'large-3 columns panel' >
+			<%= link_to "Go to Question", problem_show_path(:id => problem.id) %>
+		</div>
+		<% @check_solved = "Not Solved" %>
+		<% if @solved_problems != nil %>
+			<% @solved_problems.each do |s| %>
+				<% if s.problem_id == problem.id %>
+					<% @check_solved = "Solved" %>
+				<% end %>
+			<% end %>
+		<% end %>
+		<div class = 'large-3 columns panel'>
+			<%= @check_solved %><br>
+		</div>
+		<% i = i + 1 %>
+	<% end %><br>
+</div>

@@ -1,0 +1,21 @@
+<%= form_for @problem do |problem| %>
+	<p>
+		<%= problem.label :title %><br>
+		<%= problem.text_field :title %>
+	</p>
+	<p>
+		<%= problem.label :question %><br>
+		<%= problem.text_area :question %>
+	</p>
+	<p>
+		<%= label_tag(:testing_input, "Testing Input") %><br>
+		<%= text_area_tag(:testing_input) %>
+	</p>
+	<p>
+		<%= label_tag(:testing_output, "Testing Output") %><br>
+		<%= text_area_tag(:testing_output) %>
+	</p>
+	<p>
+		<%= submit_tag("Add Problem") %>
+	</p>
+<% end %>
