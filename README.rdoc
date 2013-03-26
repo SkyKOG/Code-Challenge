@@ -1,3 +1,21 @@
+A site for conducting online coding competition. 
+Programs in C, C++ ,Python ,Ruby are accepted.
+Admins can add new questions. 
+This site is built on Ruby on Rails and Foundation frontend framework.
+
+Type these commands in the terminal
+
+git clone https://github.com/polurupraveen/Code-Challenge.git
+
+cd Code-Challenge
+
+bundle install
+
+rails s
+
+
+localhost:3000
+
 User-details{
   username = praveen1
   password = praveen1
